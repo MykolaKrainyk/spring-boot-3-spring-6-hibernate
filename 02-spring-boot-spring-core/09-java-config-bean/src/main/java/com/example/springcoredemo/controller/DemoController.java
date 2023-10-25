@@ -12,7 +12,7 @@ public class DemoController {
     private Coach coach;
 
     @Autowired
-    public DemoController(@Qualifier("swimCoach") Coach coach) {
+    public DemoController(@Qualifier("customBeanId") Coach coach) {
         this.coach = coach;
     }
 
