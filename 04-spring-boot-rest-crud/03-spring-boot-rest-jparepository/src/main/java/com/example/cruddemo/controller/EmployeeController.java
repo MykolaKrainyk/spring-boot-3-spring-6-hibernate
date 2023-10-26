@@ -35,10 +35,7 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable("id") int employeeId) {
-        Employee employee = employeeService.findById(employeeId);
-        throwExceptionIfEmployeeNull(employeeId, employee);
-
-        return employee;
+        return employeeService.findById(employeeId);
     }
 
     @PostMapping()
@@ -58,15 +55,7 @@ public class EmployeeController {
     @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable("id") int employeeId) {
         Employee employee = employeeService.findById(employeeId);
-        throwExceptionIfEmployeeNull(employeeId, employee);
-
-        employeeService.deleteById(employeeId);
-    }
-
-    private void throwExceptionIfEmployeeNull(int employeeId, Employee employee) {
-        if (employee == null) {
-            throw new EmployeeNotFoundException("Employee id not found - " + employeeId);
-        }
+        employeeService.delete(employee);
     }
 
     @ExceptionHandler(EmployeeNotFoundException.class)
