@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Student Form</title>
@@ -16,6 +16,12 @@
         <select th:field="*{country}">
             <option th:each="county : ${countries}" th:value="${county}" th:text="${county}" />
         </select>
+        <br><br>
+        Favorite Programming Language:
+        <input type="radio" th:field="*{favoriteLanguage}"
+               th:each="language : ${languages}"
+               th:value="${language}"
+               th:text="${language}" />
         <br><br>
         <input type="submit" value="Submit">
     </form>
