@@ -5,26 +5,32 @@
     <title>Student Form</title>
 </head>
 <body>
-    <h3>Student Registration Form</h3>
+<h3>Student Registration Form</h3>
 
-    <form th:action="@{/processStudentForm}" th:object="${student}" method="post">
-        First Name: <input type="text" th:field="*{firstName}">
-        <br><br>
-        Last Name: <input type="text" th:field="*{lastName}">
-        <br><br>
-        Country:
-        <select th:field="*{country}">
-            <option th:each="county : ${countries}" th:value="${county}" th:text="${county}" />
-        </select>
-        <br><br>
-        Favorite Programming Language:
-        <input type="radio" th:field="*{favoriteLanguage}"
-               th:each="language : ${languages}"
-               th:value="${language}"
-               th:text="${language}" />
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+<form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+    First Name: <input type="text" th:field="*{firstName}">
+    <br><br>
+    Last Name: <input type="text" th:field="*{lastName}">
+    <br><br>
+    Country:
+    <select th:field="*{country}">
+        <option th:each="county : ${countries}" th:value="${county}" th:text="${county}"/>
+    </select>
+    <br><br>
+    Favorite Programming Language:
+    <input type="radio" th:field="*{favoriteLanguage}"
+           th:each="language : ${languages}"
+           th:value="${language}"
+           th:text="${language}"/>
+    <br><br>
+    Favorite Operating Systems:
+    <input type="checkbox" th:field="*{favoriteSystems}"
+           th:each="system : ${systems}"
+           th:value="${system}"
+           th:text="${system}">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>
